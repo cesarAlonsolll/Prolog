@@ -10,6 +10,8 @@ hijode(A,B):-padrede(B,A).
 abuelode(A,B):-padrede(A,C),padrede(C,B).
 hermanode(A,B):-padrede(C,A),padrede(C,B),A\==B.
 tiode(A,B):-hermanode(A,C),padrede(C,B).
+sobrinode(A,B):-hijode(A,C),hermanode(C,B).
+primode(A,B):-hijode(A,C),hijode(B,D),hermanode(C,D),not(hermanode(A,B)).
 nietode(A,B):-hijode(A,C),hijode(C,B).
 esposode(A,B):-padrede(A,C),padrede(B,C),A\==B.
 esfeliz(X):- not(esposode(X,_)).
